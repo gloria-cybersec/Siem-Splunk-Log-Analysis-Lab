@@ -49,16 +49,13 @@ A Windows machine was monitored using Splunk. Multiple failed login attempts wer
 ```spl
 EventCode=4625
 
+📊 Aggregated Analysis
 
-### 📊 Aggregated Analysis
-
-```spl
 EventCode=4625 | stats count by Account_Name, host
 
 
 ### 🔬 Detailed Event Analysis
 
-```spl
 EventCode=4625 | table _time Account_Name host Source_Network_Address Logon_Type
 
 🔍 Results
@@ -80,6 +77,5 @@ SIEM configuration
 Windows log analysis
 Brute-force detection
 Basic SOC investigation
-
 
 
