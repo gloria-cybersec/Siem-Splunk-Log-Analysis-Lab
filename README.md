@@ -47,9 +47,6 @@ A Windows machine was monitored using Splunk. Multiple failed login attempts wer
 ## 📊 Dashboard Overview
 
 This dashboard provides a real-time view of failed login attempts, allowing detection of potential brute-force attacks by analyzing login frequency, targeted users, and source activity.
-
-
-
 ![Dashboard](01-dashboard.png)
 
 ---
