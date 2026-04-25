@@ -44,21 +44,7 @@ A Windows machine was monitored using Splunk. Multiple failed login attempts wer
 
 #### 🔍 Basic Search
 
-### 🚨 Failed Login Detection
-
-```spl
-EventCode=4625
-
-📊 Aggregated Analysis
-
-EventCode=4625 | stats count by Account_Name, host
-
-
-### 🔬 Detailed Event Analysis
-
-EventCode=4625 | table _time Account_Name host Source_Network_Address Logon_Type
-
-🔍 Results
+### 🔍 Results
 Detected multiple failed login attempts
 Affected users:
 CYBERLAB$
@@ -66,13 +52,17 @@ Labuser
 Source of activity: 127.0.0.1 (local machine)
 Logon Type: Type 2 (interactive login)
 
-💡 Key Takeaways
+---
+
+### 💡 Key Takeaways
 Splunk can ingest and analyze Windows Event Logs
 Event ID 4625 is useful for detecting failed login attempts
 Local login attempts may show 127.0.0.1 instead of an external IP
 Failed login patterns can be analyzed by account name, host, and logon type
 
-💼 Skills Demonstrated
+---
+
+### 💼 Skills Demonstrated
 SIEM configuration
 Windows log analysis
 Brute-force detection
