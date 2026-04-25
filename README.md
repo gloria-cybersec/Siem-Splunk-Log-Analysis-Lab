@@ -47,3 +47,52 @@ A Windows machine was monitored using Splunk. Multiple failed login attempts wer
 #### Basic Search
 ```spl
 index=*
+
+Failed Login Detection
+EventCode=4625
+
+Aggregated Analysis
+EventCode=4625 | stats count by Account_Name, host
+
+Detailed Event Analysis
+EventCode=4625 | table _time Account_Name host Source_Network_Address Logon_Type
+
+🔍 Results
+Detected multiple failed login attempts (Event ID 4625)
+Identified affected accounts:
+CYBERLAB$
+Labuser
+Source of activity:
+127.0.0.1 (local machine)
+Logon type:
+Type 2 (interactive login)
+
+📸 Screenshots
+Splunk Dashboard / Search Interface
+
+Logs Successfully Ingested
+
+Failed Login Detection (EventCode 4625)
+
+Aggregated Analysis
+
+Detailed Event Analysis
+
+💡 Key Takeaways
+Splunk successfully ingests and analyzes Windows Event Logs
+Event ID 4625 is critical for detecting failed login attempts
+Local attacks may not include external IP addresses
+Log analysis can still identify attack patterns using:
+Account names
+Host
+Logon type
+
+💼 Resume Value
+
+This lab demonstrates:
+
+SIEM implementation and configuration
+Log ingestion and parsing
+Security event detection (brute-force attempts)
+Basic threat investigation and analysis
+Hands-on experience with real security data
