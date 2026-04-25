@@ -43,5 +43,29 @@ A Windows machine was monitored using Splunk. Multiple failed login attempts wer
 ### 4. Log Analysis
 
 #### 🔍 Basic Search
+
+### 🚨 Failed Login Detection
+
+```spl
+EventCode=4625
+
+### 📊 Aggregated Analysis
+
+```spl
+EventCode=4625 | stats count by Account_Name, host
+
+### 🔬 Detailed Event Analysis
+
+```spl
+EventCode=4625 | table _time Account_Name host Source_Network_Address Logon_Type
+
+## 🔍 Results
+
+- Detected multiple failed login attempts  
+- **Affected users:**
+  - CYBERLAB$  
+  - Labuser  
+- **Source of activity:** 127.0.0.1 (local machine)  
+- **Logon Type:** Type 2 (interactive login)
 ```spl
 index=*
