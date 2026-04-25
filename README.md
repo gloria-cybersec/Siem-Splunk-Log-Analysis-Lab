@@ -1,40 +1,42 @@
-# SIEM Lab - Splunk Log Analysis & Brute Force Detection
+# SIEM Lab - Splunk Log Analysis
 
-## 🧠 Objective
-Implement a SIEM lab using Splunk to ingest Windows Event Logs and detect failed login attempts (brute force activity).
+## Objective
+Detect failed login attempts using Splunk and Windows logs.
 
 ---
 
-## 🛠️ Tools Used
-- Splunk Enterprise (SIEM)
+## Tools
+- Splunk Enterprise
 - Windows 11 VM
-- VMware Workstation
+- VMware
 
 ---
 
-## 🧪 Scenario
-A Windows machine was monitored using Splunk. Multiple failed login attempts were generated to simulate a brute force attack.
+## What I did
+
+1. Installed Splunk
+2. Added Windows Event Logs (Security, System)
+3. Generated failed logins (wrong password)
+4. Searched logs in Splunk
 
 ---
 
-## ⚙️ Steps
+## Detection
 
-### 1. Install Splunk
-- Installed Splunk Enterprise on Windows VM
-- Accessed via `http://localhost:8000`
+Failed logins:
 
-### 2. Ingest Logs
-- Added data using **Local Event Logs**
-- Selected:
-  - Security
-  - System
-
-### 3. Generate Events
-- Locked system (`Win + L`)
-- Entered incorrect password multiple times
-
-### 4. Search Logs
-
-Basic search:
 ```spl
-index=*
+EventCode=4625
+
+Analysis:
+
+EventCode=4625 | stats count by Account_Name, host
+
+Detailed:
+EventCode=4625 | table _time Account_Name host Source_Network_Address Logon_Type
+
+Results
+Detected failed login attempts
+Users affected: CYBERLAB$, Labuser
+Source: 127.0.0.1 (local machine)
+Screenshots
