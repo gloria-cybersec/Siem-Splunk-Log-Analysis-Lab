@@ -44,11 +44,21 @@ A Windows machine was monitored using Splunk. Multiple failed login attempts wer
 
 #### 🔍 Basic Search
 
-
+```spl
+index=*
 ---
+🚨 Failed Login Detection
+EventCode=4625
+
+📊 Aggregated Analysis
+
+EventCode=4625 | stats count by Account_Name, host
+
+🔬 Detailed Event Analysis
+
+EventCode=4625 | table _time Account_Name host Source_Network_Address Logon_Type
 
 
----
 
 ### 🔍 Results
 
