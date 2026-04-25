@@ -41,16 +41,37 @@ A Windows machine was monitored using Splunk. Multiple failed login attempts wer
 ---
 
 ### 4. Log Analysis
+## 📸 Screenshots & Analysis
 
-#### 🔍 Basic Search
+### 🖥️ Splunk Dashboard
+![Dashboard](01-dashboard.png)
 
 ---
-🚨 Failed Login Detection
 
-📊 Aggregated Analysis
+### 📥 Logs Loaded
+![Logs](02-logs-loaded.png)
 
+---
 
-🔬 Detailed Event Analysis
+### 🚨 Failed Login Detection
+Query used: EventCode=4625  
+
+![EventCode](03-eventcode-4625.png)
+
+---
+
+### 📊 Aggregated Analysis
+Query used: EventCode=4625 | stats count by Account_Name, host  
+
+![Stats](04-stats-analysis.png)
+
+---
+
+### 🔬 Detailed Event Analysis
+Query used: EventCode=4625 | table _time Account_Name host Source_Network_Address Logon_Type  
+
+![Details](05-detailed-event-analysis.png)
+
 
 
 ### 🔍 Results
