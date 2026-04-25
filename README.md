@@ -44,6 +44,9 @@ A Windows machine was monitored using Splunk. Multiple failed login attempts wer
 
 #### 🔍 Basic Search
 
+
+---
+
 ### 🔍 Results
 Detected multiple failed login attempts
 Affected users:
